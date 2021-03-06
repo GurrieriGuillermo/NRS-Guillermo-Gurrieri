@@ -72,4 +72,21 @@ class EventController extends Controller
         Event::find($id)->delete();
         return redirect(url('/event'));
     }
+
+    /**
+     * show a card listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showEventCardList()
+    {
+        $events = Event::all();
+        return view("dashboard.eventlist", ['events' => $events]);
+    }
+    public function showEvent($id)
+    {
+        $event = Event::find($id);
+        return view("dashboard.event", ['event' => $event]);
+    }
+
 }
