@@ -2,6 +2,7 @@
     <thead>
         <tr>
             <th>name</th>
+            <th>range</th>
             <th>description</th>
             <th>event_day</th>
             <th>created_at</th>
@@ -11,7 +12,9 @@
         @foreach($events as $event)
             <tr>
                 <td>{{$event->name}}</td>
+                <td>{{$event->range_x}}x{{$event->range_y}}</td>
                 <td>{{$event->description}}</td>
+                <td>{{$event->event_day}}</td>
                 <td>{{$event->event_day}}</td>
                 <td>{{$event->created_at}}</td>
             </tr>
