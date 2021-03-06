@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+use App\Models\Booking;
+
 class DetailBooking extends Model
 {
     use HasFactory, SoftDeletes;
@@ -17,9 +19,14 @@ class DetailBooking extends Model
      */
     protected $fillable = [
         'id',
-        'id_bookings',
+        'booking_id',
         'seat',
     ];
+
+    public function booking()
+    {
+        return $this->belongsTo(Booking::class);
+    }
 }
 
 
