@@ -20,6 +20,8 @@ class Event extends Model
         'name',
         'description',
         'event_day',
+        'range_x',
+        'range_y',
     ];
 
 }
