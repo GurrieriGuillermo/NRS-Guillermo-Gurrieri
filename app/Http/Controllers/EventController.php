@@ -30,6 +30,8 @@ class EventController extends Controller
         $event->fill(
             $request->only(
                 'name',
+                'range_x',
+                'range_y',
                 'description',
                 'event_day'
             )
@@ -50,6 +52,8 @@ class EventController extends Controller
         Event::find($id)->update(
             $request->only(
                 'name',
+                'range_x',
+                'range_y',
                 'description',
                 'event_day'
             )
