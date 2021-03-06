@@ -17,8 +17,8 @@ class DetailBooking extends Model
      */
     protected $fillable = [
         'id',
-        'email',
-        'password',
+        'id_bookings',
+        'seat',
     ];
 }
 
