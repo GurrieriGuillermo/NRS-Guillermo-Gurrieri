@@ -10,7 +10,7 @@ use App\Models\User;
 use App\Models\Event;
 use App\Models\DetailBooking;
 
-class Bookings extends Model
+class Booking extends Model
 {
     use HasFactory, SoftDeletes;
 
