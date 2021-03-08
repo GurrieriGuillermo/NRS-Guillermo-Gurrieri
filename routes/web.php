@@ -24,5 +24,9 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index']);
 Route::get('/user', [UserController::class, 'index']);
+Route::get('/eventos', [EventController::class, 'showEventCardList']);
+Route::get('/evento/{id}', [EventController::class, 'showEvent']);
+Route::get('/event/get/{id}', [EventController::class, 'getEventById']);
+Route::post('/event/booking/{id}', [EventController::class, 'confirmEventBooking']);
 
 Route::resource('/event', EventController::class);

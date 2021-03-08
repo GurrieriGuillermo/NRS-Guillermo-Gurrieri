@@ -16,6 +16,7 @@ class CreateDetailBookingsTable extends Migration
         Schema::create('detail_bookings', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('booking_id');
+            $table->string('seat');
             
             $table->timestamps();
             $table->softDeletes();
