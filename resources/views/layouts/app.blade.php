@@ -80,5 +80,7 @@
             @yield('content')
         </main>
     </div>
+    <script src="{{ asset('js/jquery.min.js') }}" ></script>
+    @yield('script')
 </body>
 </html>
