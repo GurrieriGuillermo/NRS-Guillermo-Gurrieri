@@ -1,10 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('event.create')
-    @include('event.view')
-    @include('event.update')
-    @include('event.delete')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                @include('event.create')
+                @include('event.view')
+                @include('event.update')
+                @include('event.delete')
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('script')

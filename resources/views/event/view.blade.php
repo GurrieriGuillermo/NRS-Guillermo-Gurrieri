@@ -1,11 +1,14 @@
-<table class="table table-responsive">
+<?php
+    use Carbon\Carbon;
+?>
+<table class="table table-responsive" id="user-table">
     <thead>
         <tr>
-            <th>name</th>
-            <th>range</th>
-            <th>description</th>
-            <th>event_day</th>
-            <th>created_at</th>
+            <th>Nombre</th>
+            <th>Butacas</th>
+            <th>Descripcíon</th>
+            <th>Día del evento</th>
+            <th>Creado</th>
             <th>
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create">
                     <i class="fa fa-plus"></i>
@@ -19,7 +22,7 @@
                 <td>{{$event->name}}</td>
                 <td>{{$event->range_x}}x{{$event->range_y}}</td>
                 <td>{{$event->description}}</td>
-                <td>{{$event->event_day}}</td>
+                <td>{{Carbon::createFromFormat('Y-m-d H:i:s', $event->event_day)->format('l jS \\of F Y h:i:s A')}}</td>
                 <td>{{$event->created_at}}</td>
                 <td>
                     <button type="button" class="create-event btn btn-warning fa fa-edit" data-toggle="modal" data-target="#update" data-id="{{$event->id}}">
@@ -31,6 +34,8 @@
         @endforeach
     </tbody>
 </table>
+<p>{{ $events->links() }}</p>
+
 
 
 
