@@ -17,7 +17,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::all();
+        $events = Event::paginate(20);;
         return view("event.event", ['events' => $events]);
     }
 
@@ -98,7 +98,7 @@ class EventController extends Controller
         $userBookings = Booking::where([
             ['user_id', Auth::user()->id],
             ['event_id', $id],
-        ])->get();
+        ])->paginate(10);
         $occupiedSeats = Event::getOccupiedSeats($id);
         $occupiedSeatByUsers = Event::getOccupiedSeatByUsers($id);
         return view("dashboard.event", [

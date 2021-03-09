@@ -1,20 +1,21 @@
+
 @extends('layouts.app')
 
 @section('content')
+<?php
+    use Carbon\Carbon;
+?>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card text-center">
                 <div class="card-body">
-                    <h5 class="card-title">{{$event->name}}</h5>
+                    <h2 class="card-title">{{$event->name}}</h2>
+                    <b>{{ Carbon::createFromFormat('Y-m-d H:i:s', $event->event_day)->format('l jS \\of F Y h:i:s A')}}</b>
+                    
                     <p class="card-text">{{$event->description}}</p>
-                    <a href="evento/{{$event->id}}" class="btn btn-primary">Ver evento</a>
                 </div>
-                <div class="card-footer text-muted">
-                    {{$event->event_day}}
-                    <a  class="btn btn-success confirm-booking">confirmar</a>
-                    @csrf
-                </div>
+                
                 <table>
                     @for($x = 1; $x <= $event->range_x; $x++)
                         <tr>
@@ -42,16 +43,22 @@
                         </tr>
                     @endfor
                 </table>
+                <div class="card-footer text-muted">
+                    <a  class="btn btn-success confirm-booking">Confirmar reserva</a>
+                    @csrf
+                </div>
             </div>
+            <br>
             <div class="card text-center">
                 <div class="card-header">
-                    <h5 class="card-title">Tus reservas:</h5>
+                    <h4 class="card-title">Tus reservas:</h4>
                 </div>
-                <div class="card-body">
-                    <table>
+                <div class="card-body justify-content-center">
+                    <table class="table table-responsive">
                         <thead>
                             <tr>
                                 <td>Evento</td>
+                                <td>Fecha de evento</td>
                                 <td>Butacas reservadas</td>
                                 <td>A nombre de</td>
                                 <td>Fecha de reserva</td>
@@ -63,15 +70,16 @@
                                 <tr>
                                     <td>
                                         {{$event->name}} 
-                                        <br>
-                                        {{$event->event_day}}
+                                    </td>
+                                    <td>
+                                        {{ Carbon::createFromFormat('Y-m-d H:i:s', $event->event_day)->format('l jS \\of F Y h:i:s A')}}
                                     </td>
                                     <td>
                                         {{$userBooking->detailBookings->count()}}
                                     </td>
                                     <td>{{Auth::user()->name}} {{Auth::user()->lastname}}</td>
                                     <td>
-                                        {{$userBooking->created_at}}
+                                        {{ Carbon::createFromFormat('Y-m-d H:i:s', $userBooking->created_at)->format('l jS \\of F Y h:i:s A')}}
                                     </td>
                                 </tr>
                             @endforeach
