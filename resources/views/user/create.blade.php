@@ -3,33 +3,33 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header bg-success">
-                <h5 class="modal-title" id="exampleModalLabel">Nuevo evento</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Nuevo usuario</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="/event" method="post">
+            <form action="/user" method="post">
                 <div class="modal-body">
                         @csrf()
                         <div class="form-group">
-                            <label for="name">Nombre del evento<span class="text-warning">*</span></label>
+                            <label for="name">Nombre<span class="text-warning">*</span></label>
                             <input class="form-control" type="text" name="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="range_x">Cantidad de sillas en fila<span class="text-warning">*</span></label>
-                            <input class="form-control" type="number" name="range_x" requered>
+                            <label for="lastname">Apellido<span class="text-warning">*</span></label>
+                            <input class="form-control" type="text" name="lastname" required>
                         </div>
                         <div class="form-group">
-                            <label for="range_y">Cantidad de sillas en columna<span class="text-warning">*</span></label>
-                            <input class="form-control" type="number" name="range_y" requered>
+                            <label for="email">Email<span class="text-warning">*</span></label>
+                            <input class="form-control" type="text" name="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="event_day">Día y hora del evento<span class="text-warning">*</span></label>
-                            <input class="form-control" type="datetime-local" name="event_day" requered>
+                            <label for="password">Contraseña<span class="text-warning">*</span></label>
+                            <input class="form-control" type="text" name="password" required>
                         </div>
                         <div class="form-group">
-                            <label for="description">Descripcíon</label>
-                            <textarea class="form-control" name="description" cols="30" rows="3"></textarea>
+                            <label for="password_confirm">Confirmación de Contraseña<span class="text-warning">*</span></label>
+                            <input class="form-control" type="text" name="password_confirm" required>
                         </div>
                 </div>
                 <div class="modal-footer">

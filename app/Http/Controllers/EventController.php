@@ -40,7 +40,7 @@ class EventController extends Controller
             )
         );
         $event->save();
-        return redirect(url('/event'));
+        return redirect(url('/event'))->with('success', 'El evento se guardo correctamente!');
     }
 
     /**
@@ -61,7 +61,7 @@ class EventController extends Controller
                 'event_day'
             )
         );
-        return redirect(url('/event'));
+        return redirect(url('/event'))->with('success', 'El evento se edito correctamente!');
     }
 
     /**
@@ -73,7 +73,7 @@ class EventController extends Controller
     public function destroy($id)
     {
         Event::find($id)->delete();
-        return redirect(url('/event'));
+        return redirect(url('/event'))->with('success', 'El evento se elimino correctamente!');
     }
 
     /**
@@ -116,8 +116,10 @@ class EventController extends Controller
         if ($isFreeSeats) {
             $booking_id = $this->saveBooking($event_id);
             $this->saveDetailBooking($booking_id, $request->seats);
+            $request->session()->flash('success', 'Tu reserva ya ha sido guardada!');
             return true;
         }else{
+            $request->session()->flash('error', 'Estas butacas ya han sido reservadas! intenta nuevamente.');
             return false;
         }
     }

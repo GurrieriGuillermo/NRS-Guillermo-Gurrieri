@@ -137,14 +137,8 @@
                         '_token': token
                     },
                 })
-                .done(function() {
-                    //alert( "second success" );
-                })
-                .fail(function() {
-                    //alert( "error" );
-                })
                 .always(function() {
-                    //alert( "always" );
+                    window.location.reload();
                 });
             }
         });

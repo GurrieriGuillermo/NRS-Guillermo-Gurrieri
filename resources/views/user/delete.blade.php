@@ -4,7 +4,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header bg-danger">
-        <h5 class="modal-title" id="exampleModalLabel">Eliminar evento</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar usuario</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -15,8 +15,8 @@
               @method("delete")
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary">Aceptar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Aceptar</button>
         </div>
       </form>
     </div>
